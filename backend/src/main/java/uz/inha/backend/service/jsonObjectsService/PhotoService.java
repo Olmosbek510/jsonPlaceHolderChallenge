@@ -3,6 +3,7 @@ package uz.inha.backend.service.jsonObjectsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import uz.inha.backend.dto.jsonDto.PhotoDto;
+import uz.inha.backend.entity.User;
 import uz.inha.backend.entity.jsonElements.Photo;
 import uz.inha.backend.repository.AlbumRepository;
 import uz.inha.backend.repository.PhotoRepository;
@@ -24,5 +25,9 @@ public class PhotoService {
                     photoDto.getThumbnailUrl()
             ));
         });
+    }
+
+    public List<Photo> findPhotoByAlbum(Integer albumId) {
+        return photoRepository.findPhotoByAlbumId(albumId);
     }
 }
